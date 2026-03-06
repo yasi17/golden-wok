@@ -22,7 +22,7 @@ function renderWebsite(){
     renderContact()
     renderLocation()
     renderMenuTitle()
-    renderFooter()
+    // renderFooter()
 
 }
 
@@ -146,6 +146,7 @@ window.onload=renderWebsite
 
 
 // window.onload=renderWebsite
+
 
 
 
