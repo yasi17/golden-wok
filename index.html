@@ -1,35 +1,41 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh"> 
+<!-- η αρχικη γλωσσα ειναι κινεζικα -->
 
 <head>
-<meta charset="UTF-8">
-<title>Golden Wok</title>
+<meta charset="UTF-8"> <!-- υποστηριζει ολες τις γλωσσες-->
+<title>Golden Wok</title> <!--το ονομα που εφανιζεται στο Tab του Browser -->
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body> <!-- ξεκιναει το περιεχομενο της ιστοσελίδας -->
 
-<header>
+<header> <!-- η πανω μπρα της ιστοσελιδας -->
 
-<h2 id="siteTitle"></h2>
+<!-- SITETITLE---------->
+<h2 id="siteTitle"></h2> 
+<!--Πηγαινε στο app.js  εκτελεσε την getelementbyid= "siteTitle" και πηγαινε στο config.js και βρες το text-->
 
-<div class="lang">
+<div class="lang"> <!-- // κουμπια γλωσσας  -->
 <button onclick="setLang('zh')">中文</button>
 <button onclick="setLang('en')">English</button>
 <button onclick="setLang('gr')">Ελληνικά</button>
 </div>
 
+<!------------------ HERO-------------->
 </header>
 
 <section class="hero">
 
-<h2 id="welcome"></h2>
+<h1 id="welcome"></h2>
 <p id="slogan"></p>
+
+<!------------------ ARD MODULE-------------->
 
 <section class="card-module">
 
 
-<h2 id="orderTitle"></h2>
+<h2 id="orderTitle"></h2> <!-- OPENING HOURS-->
 
 <div class="buffet-box">
 
@@ -40,24 +46,26 @@
 
 </div>
 
-<a id="orderButton" class="order-btn" target="_blank"></a>
+<a id="orderButton" class="order-btn" target="_blank"></a>  <!-- EFOOD-->
 
 </section>
 
 </section>
-
+<!---MENU----------------->
 <section class="menu">
 
 <h2 id="menuTitle"></h2>
 
-<div id="menuContainer"></div>
+<div id="menuContainer"></div> <!-- ΔΗΜΙΟΥΡΓΕΙ ΔΥΝΑΜΙΚΑ ΤΟ ΜΕΝΟΥ-->
 
 </section>
 
+<!--MAP------------>
 <section class="map">
 
 <h2 id="locationTitle"></h2>
 
+<!--Ενσωματωμένος χάρτης Google.-->
 <iframe
 width="90%"
 height="350"
@@ -66,7 +74,7 @@ src="https://www.google.com/maps?q=Leof.+Andrea+Siggrou+207,+Nea+Smirni+171+21&o
 </iframe>
 
 </section>
-
+<!--CONTACT----------->
 <section class="contact">
 
 <h2 id="contactTitle"></h2>
