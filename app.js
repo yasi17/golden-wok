@@ -22,7 +22,7 @@ function renderWebsite(){
     renderContact()
     renderLocation()
     renderMenuTitle()
-    renderFooter()
+    // renderFooter()
 
 }
 
@@ -121,7 +121,7 @@ function renderMenuTitle(){
 
 }
 
-function renderFooter(){}
+// function renderFooter(){}
 
 
 //     document.querySelectorAll(".category h3").forEach(h=>{
@@ -140,6 +140,7 @@ function renderFooter(){}
 // })
 
 window.onload=renderWebsite
+
 
 
 
