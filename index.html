@@ -1,28 +1,24 @@
 <!DOCTYPE html>
-<html lang="gr"> 
-<!-- η αρχικη γλωσσα ειναι κινεζικα -->
+<html lang="zh">
 
 <head>
-<meta charset="UTF-8"> <!-- υποστηριζει ολες τις γλωσσες-->
-<title>Golden Wok</title> <!--το ονομα που εφανιζεται στο Tab του Browser -->
+<meta charset="UTF-8">
+<title>Golden Wok</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body> <!-- ξεκιναει το περιεχομενο της ιστοσελίδας -->
+<body>
 
-<header> <!-- η πανω μπρα της ιστοσελιδας -->
+<header>
 
-<!-- SITETITLE---------->
-<h2 id="siteTitle"></h2> 
-<!--Πηγαινε στο app.js  εκτελεσε την getelementbyid= "siteTitle" και πηγαινε στο config.js και βρες το text-->
+<h2 id="siteTitle"></h2>
 
-<div class="lang"> <!-- // κουμπια γλωσσας  -->
+<div class="lang">
 <button onclick="setLang('zh')">中文</button>
 <button onclick="setLang('en')">English</button>
 <button onclick="setLang('gr')">Ελληνικά</button>
 </div>
 
-<!------------------ HERO-------------->
 </header>
 
 <section class="hero">
@@ -30,12 +26,10 @@
 <h1 id="welcome"></h1>
 <p id="slogan"></p>
 
-<!------------------ ARD MODULE-------------->
-
 <section class="card-module">
 
 
-<h2 id="orderTitle"></h2> <!-- OPENING HOURS-->
+<h2 id="orderTitle"></h2>
 
 <div class="buffet-box">
 
@@ -46,25 +40,26 @@
 
 </div>
 
-<a id="orderButton" class="order-btn" target="_blank"></a>  <!-- EFOOD -->
+<a id="orderButton" class="order-btn"
+href="https://www.e-food.gr/delivery/nea-smurni/golden-wok-8734941"
+target="_blank"></a>
+
 </section>
 
 </section>
-<!---MENU----------------->
+
 <section class="menu">
 
 <h2 id="menuTitle"></h2>
 
-<div id="menuContainer"></div> <!-- ΔΗΜΙΟΥΡΓΕΙ ΔΥΝΑΜΙΚΑ ΤΟ ΜΕΝΟΥ-->
+<div id="menuContainer"></div>
 
 </section>
 
-<!--MAP------------>
 <section class="map">
 
 <h2 id="locationTitle"></h2>
 
-<!--Ενσωματωμένος χάρτης Google.-->
 <iframe
 width="90%"
 height="350"
@@ -73,7 +68,7 @@ src="https://www.google.com/maps?q=Leof.+Andrea+Siggrou+207,+Nea+Smirni+171+21&o
 </iframe>
 
 </section>
-<!--CONTACT----------->
+
 <section class="contact">
 
 <h2 id="contactTitle"></h2>
@@ -97,11 +92,4 @@ Golden Wok © 2026
 
 </body>
 </html>
-
-
-
-
-
-
-
 
