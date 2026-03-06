@@ -140,7 +140,8 @@ function renderFooter(){}
 
 window.onload=renderWebsite
 
-})
+// })
 
 
-window.onload=renderWebsite
+// window.onload=renderWebsite
+
