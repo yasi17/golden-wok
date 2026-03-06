@@ -51,32 +51,31 @@ function renderMenu(){
 
     DB.menu.forEach(category=>{
 
-    let catId="cat_"+category.id
+        let catId="cat_"+category.id
 
-    html+=
+        html+=`
         <div class="category">
-        <h3 onclick="toggle('${catId}')">
-        ${category.name[lang]} ▼
-        </h3>
+            <h3 onclick="toggle('${catId}')">
+            ${category.name[lang]} ▼
+            </h3>
 
-        <div id="${catId}" style="display:none">
+            <div id="${catId}" style="display:none">
+        `
 
-    
+        category.items.forEach(food=>{
 
-    category.items.forEach(food=>{
+            html+=`
+            <div class="food">
+                <span>${food[lang]}</span>
+                <span>€${food.price}</span>
+            </div>
+            `
 
-    html+=
-        <div class="food">
-        <span>${food[lang]}</span>
-        <span>€${food.price}</span>
-        </div>
-    
+        })
 
-})
+        html+=`</div></div>`
 
-    html+="</div></div>"
-
-})
+    })
 
     document.getElementById("menuContainer").innerHTML=html
 
@@ -138,5 +137,6 @@ function renderFooter(){}
 // })
 
 window.onload=renderWebsite
+
 
 
