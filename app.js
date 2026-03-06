@@ -149,48 +149,55 @@ document.getElementById("menuTitle").innerText=
 DB.menuTitle[lang]
 
 }
-let images=[
-"images/food1.webp",
-"images/food2.webp",
-"images/food3.webp",
-"images/food4.webp"
-]
+/////////////////////////////////////////////////////////////////////////////////////////////////
+let index=0
 
-let currentImage=0
+function showImages(){
 
-function showImage(){
-document.getElementById("galleryImage").src=images[currentImage]
+const images=document.querySelectorAll("#galleryTrack img")
+const total=images.length
+
+images.forEach(img=>{
+img.style.display="none"
+img.classList.remove("active")
+})
+
+let left=(index-1+total)%total
+let center=index
+let right=(index+1)%total
+
+images[left].style.display="block"
+images[center].style.display="block"
+images[right].style.display="block"
+
+images[center].classList.add("active")
+
 }
 
-function nextImage(){
+function nextSlide(){
 
-currentImage++
+const images=document.querySelectorAll("#galleryTrack img")
 
-if(currentImage>=images.length){
-currentImage=0
+index=(index+1)%images.length
+
+showImages()
+
 }
 
-showImage()
+function prevSlide(){
+
+const images=document.querySelectorAll("#galleryTrack img")
+
+index=(index-1+images.length)%images.length
+
+showImages()
+
 }
 
-function prevImage(){
+function openImage(img){
 
-currentImage--
-
-if(currentImage<0){
-currentImage=images.length-1
-}
-
-showImage()
-}
-
-function openImage(src){
-
-let lightbox=document.getElementById("lightbox")
-let img=document.getElementById("lightboxImg")
-
-img.src=src
-lightbox.style.display="flex"
+document.getElementById("lightbox").style.display="flex"
+document.getElementById("lightboxImg").src=img.src
 
 }
 
@@ -200,5 +207,7 @@ document.getElementById("lightbox").style.display="none"
 
 }
 
+window.addEventListener("load",showImages)
+//////////////////////////////////////////////////////////////////////
 
 window.onload=renderWebsite

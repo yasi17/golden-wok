@@ -62,23 +62,26 @@ target="_blank"></a>
 
 <h2>Gallery</h2>
 
-<div class="gallery-container">
+<div class="gallery">
+
+<button class="arrow left" onclick="prevSlide()">❮</button>
 
 <div class="gallery-track" id="galleryTrack">
 
-<img src="images/food1.webp" onclick="openImage(this.src)">
-<img src="images/food2.webp" onclick="openImage(this.src)">
-<img src="images/food3.webp" onclick="openImage(this.src)">
-<img src="images/food4.webp" onclick="openImage(this.src)">
-<img src="images/food5.webp" onclick="openImage(this.src)">
-<img src="images/food6.webp" onclick="openImage(this.src)">
+<img src="images/food1.webp" onclick="openImage(this)">
+<img src="images/food2.webp" onclick="openImage(this)">
+<img src="images/food3.webp" onclick="openImage(this)">
+<img src="images/food4.webp" onclick="openImage(this)">
+<img src="images/food5.webp" onclick="openImage(this)">
+<img src="images/food6.webp" onclick="openImage(this)">
 
 </div>
+
+<button class="arrow right" onclick="nextSlide()">❯</button>
 
 </div>
 
 </section>
-
 
 <div id="lightbox" onclick="closeImage()">
 <img id="lightboxImg">
