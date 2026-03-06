@@ -73,7 +73,10 @@ function renderMenu(){
 
         })
 
-        html+=`</div></div>`
+        html+=`
+            </div>
+        </div>
+        `
 
     })
 
@@ -137,6 +140,7 @@ function renderFooter(){}
 // })
 
 window.onload=renderWebsite
+
 
 
 
