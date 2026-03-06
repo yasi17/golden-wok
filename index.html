@@ -1,87 +1,111 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="zh">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Wok | Authentic Chinese Cuisine</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Golden Wok</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-    <h2 id="siteTitle" class="brand-title"></h2>
 
-    <div class="lang">
-        <button onclick="setLang('zh')">中文</button>
-        <button onclick="setLang('en')">English</button>
-        <button onclick="setLang('gr')" class="active">Ελληνικά</button>
-    </div>
+<h2 id="siteTitle"></h2>
+
+<div class="lang">
+<button onclick="setLang('zh')">中文</button>
+<button onclick="setLang('en')">English</button>
+<button onclick="setLang('gr')">Ελληνικά</button>
+</div>
+
 </header>
 
 <section class="hero">
-    <h1 id="welcome"></h1>
-    <p id="slogan"></p>
 
-    <div class="card-module">
-        <h2 id="orderTitle"></h2>
-        
-        <div class="buffet-box">
-            <p id="openingText"></p>
-            <p id="buffetTime"></p>
-            <p id="buffetPrice"></p>
-        </div>
+<h1 id="welcome"></h1>
+<p id="slogan"></p>
 
-        <a id="orderButton" class="order-btn" 
-           href="https://www.e-food.gr/delivery/nea-smurni/golden-wok-8734941" 
-           target="_blank">
-        </a>
-    </div>
-</section>
+<section class="card-module">
 
-<section class="menu">
-    <h2 id="menuTitle"></h2>
-    <div id="menuContainer"></div>
-</section>
 
-<div class="gallery">
-    <button class="arrow" onclick="prevSlide()">❮</button>
-    
-    <div class="gallery-track" id="galleryTrack">
-        <img src="images/food1.webp" alt="Chinese Dish 1">
-        <img src="images/food2.webp" alt="Chinese Dish 2">
-        <img src="images/food3.webp" alt="Chinese Dish 3">
-        <img src="images/food4.webp" alt="Chinese Dish 4">
-        <img src="images/food5.webp" alt="Chinese Dish 5">
-        <img src="images/food6.webp" alt="Chinese Dish 6">
-    </div>
+<h2 id="orderTitle"></h2>
 
-    <button class="arrow" onclick="nextSlide()">❯</button>
+<div class="buffet-box">
+
+<p id="openingText"></p>
+
+<p id="buffetTime"></p>
+<p id="buffetPrice"></p>
+
 </div>
 
+<a id="orderButton" class="order-btn" 
+href="https://www.e-food.gr/delivery/nea-smurni/golden-wok-8734941" 
+target="_blank"></a>
+
+</section>
+
+</section>
+
+
+
+<section class="menu">
+
+<h2 id="menuTitle"></h2>
+
+<div id="menuContainer"></div>
+
+</section>
+<!---///////////////////////////////////////////-->
+<div class="gallery">
+
+<button class="arrow left" onclick="prevSlide()">❮</button>
+
+<div class="gallery-track" id="galleryTrack">
+
+<img src="images/food1.webp" onclick="openImage(this)">
+<img src="images/food2.webp" onclick="openImage(this)">
+<img src="images/food3.webp" onclick="openImage(this)">
+<img src="images/food4.webp" onclick="openImage(this)">
+<img src="images/food5.webp" onclick="openImage(this)">
+<img src="images/food6.webp" onclick="openImage(this)">
+
+</div>
+
+<button class="arrow right" onclick="nextSlide()">❯</button>
+
+</div>
+<!--////////////////////////////////-->
 <section class="map">
-    <h2 id="locationTitle"></h2>
-    <iframe
-        width="90%"
-        height="350"
-        style="border:0; border-radius: 18px;"
-        loading="lazy"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3146.541334641!2d23.7142!3d37.9424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1bd7848c1e8d3%3A0x6a0f0f0f0f0f0f0f!2sLeof.%20Andrea%20Siggrou%20207%2C%20Nea%20Smirni%20171%2021!5e0!3m2!1sen!2sgr!4v1700000000000">
-    </iframe>
+
+<h2 id="locationTitle"></h2>
+
+<iframe
+width="90%"
+height="350"
+loading="lazy"
+src="https://www.google.com/maps?q=Leof.+Andrea+Siggrou+207,+Nea+Smirni+171+21&output=embed">
+</iframe>
+
 </section>
 
 <section class="contact">
-    <h2 id="contactTitle"></h2>
-    <p id="contactPhone"></p>
-    <p id="contactAddress"></p>
+
+<h2 id="contactTitle"></h2>
+<p id="contactPhone"></p>
+<p id="contactAddress"></p>
+
 </section>
 
 <footer>
-    <div class="footer-brand">Golden Wok</div>
-    <div class="footer-copy">
-        Golden Wok © 2026 | All Rights Reserved
-    </div>
+
+<div class="footer-brand">Golden Wok</div>
+
+<div class="footer-copy">
+Golden Wok © 2026
+</div>
+
 </footer>
 
 <script src="config.js"></script>

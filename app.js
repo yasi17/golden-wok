@@ -1,135 +1,194 @@
-/* ===== Ρυθμίσεις Γλώσσας ===== */
-let lang = "gr";
-let index = 0; // Για το Gallery
+let lang="gr"
 
-function setLang(l) {
-    lang = l;
-    // Ενημέρωση του "active" στυλ στα κουμπιά γλώσσας
-    document.querySelectorAll('.lang button').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.getAttribute('onclick').includes(`'${l}'`)) {
-            btn.classList.add('active');
-        }
-    });
-    renderWebsite();
+function setLang(l){
+lang=l
+renderWebsite()
 }
 
-/* ===== Κεντρική Συνάρτηση Render ===== */
-function renderWebsite() {
-    // Βασικά κείμενα
-    document.getElementById("siteTitle").innerText = DB.restaurant[lang];
-    document.getElementById("welcome").innerText = DB.welcome[lang];
-    document.getElementById("slogan").innerText = DB.slogan[lang];
-    document.getElementById("menuTitle").innerText = DB.menuTitle[lang];
-    document.getElementById("locationTitle").innerText = DB.locationTitle[lang];
+function renderWebsite(){
 
-    renderOrderModule();
-    renderMenu();
-    renderContact();
-    showImages(); // Αρχικοποίηση Gallery
+document.getElementById("siteTitle").innerText=
+DB.restaurant[lang]
+
+document.getElementById("welcome").innerText=
+DB.welcome[lang]
+
+document.getElementById("slogan").innerText=
+DB.slogan[lang]
+
+renderOrderModule()
+renderMenu()
+renderContact()
+renderLocation()
+renderMenuTitle()
+
+
 }
 
-/* ===== Modules ===== */
-function renderOrderModule() {
-    document.getElementById("orderTitle").innerText = DB.orderModule.title[lang];
-    document.getElementById("openingText").innerText = DB.opening[lang];
-    document.getElementById("buffetTime").innerText = DB.buffetTime[lang];
-    document.getElementById("buffetPrice").innerText = DB.buffetPrice[lang];
-    document.getElementById("orderButton").innerText = DB.orderModule.orderButton[lang];
+
+function renderOrderModule(){
+
+document.getElementById("orderTitle").innerText=
+DB.orderModule.title[lang]
+
+document.getElementById("openingText").innerText=
+DB.opening[lang]
+
+document.getElementById("buffetTime").innerText=
+DB.buffetTime[lang]
+
+document.getElementById("buffetPrice").innerText=
+DB.buffetPrice[lang]
+
+document.getElementById("orderButton").innerText=
+DB.orderModule.orderButton[lang]
+
 }
 
-function renderMenu() {
-    let html = "";
-    DB.menu.forEach(category => {
-        let catId = "cat_" + category.id;
-        html += `
-        <div class="category">
-            <h3 onclick="toggle('${catId}')" style="cursor:pointer">
-                ${category.name[lang]} ▼
-            </h3>
-            <div id="${catId}" style="display:none">
-        `;
+function renderMenu(){
 
-        category.items?.forEach(food => {
-            if (!food.type || food.type === "simple") {
-                html += `
-                <div class="food">
-                    <span>${food[lang]}</span>
-                    <span>€${food.price.toFixed(2)}</span>
-                </div>`;
-            }
+let html=""
 
-            if (food.type === "complex") {
-                html += `
-                <div style="padding:12px 0; text-align:left;">
-                    <strong class="complex-title">${food.title[lang]}</strong>
-                </div>`;
-                food.options.forEach(opt => {
-                    html += `
-                    <div class="food">
-                        <span style="padding-left:20px">- ${opt[lang]}</span>
-                        <span>€${opt.price.toFixed(2)}</span>
-                    </div>`;
-                });
-            }
-        });
-        html += "</div></div>";
-    });
-    document.getElementById("menuContainer").innerHTML = html;
+DB.menu.forEach(category=>{
+
+let catId="cat_"+category.id
+
+html+=`
+<div class="category">
+<h3 onclick="toggle('${catId}')">
+${category.name[lang]} ▼
+</h3>
+
+<div id="${catId}" style="display:none">
+`
+
+category.items?.forEach(food=>{
+
+/* ===== 普通菜品 ===== */
+
+if(!food.type || food.type==="simple"){
+
+html+=`
+<div class="food">
+<span>${food[lang]}</span>
+<span>€${food.price}</span>
+</div>
+`
+
 }
 
-function toggle(id) {
-    let el = document.getElementById(id);
-    if (!el) return;
-    el.style.display = (el.style.display === "none") ? "block" : "none";
+/* ===== 复杂菜品（专业版） ===== */
+
+if(food.type==="complex"){
+
+html+=`
+<div style="padding:12px 0">
+<strong class="complex-title">
+${food.title[lang]}
+</strong>
+</div>
+`
+
+food.options.forEach(opt=>{
+
+html+=`
+<div class="food">
+<span style="padding-left:20px">
+- ${opt[lang]}
+</span>
+<span>€${opt.price}</span>
+</div>
+`
+
+})
+
 }
 
-function renderContact() {
-    // Διόρθωση για τη δομή του DB.contact
-    const info = DB.contact[lang];
-    document.getElementById("contactTitle").innerText = info.title;
-    document.getElementById("contactPhone").innerText = info.phone;
-    document.getElementById("contactAddress").innerText = info.address;
+})
+
+html+="</div></div>"
+
+})
+
+document.getElementById("menuContainer").innerHTML=html
+
+}
+function toggle(id){
+
+let el=document.getElementById(id)
+if(!el) return
+
+el.style.display =
+el.style.display==="none"?"block":"none"
+
 }
 
-/* ===== Gallery Logic ===== */
-function showImages() {
-    const images = document.querySelectorAll("#galleryTrack img");
-    if (images.length === 0) return;
-    
-    const total = images.length;
+function renderContact(){
 
-    images.forEach(img => {
-        img.classList.remove("active", "side");
-        img.style.display = "none";
-    });
+document.getElementById("contactTitle").innerText=
+DB.contact[lang].title
 
-    let left = (index - 1 + total) % total;
-    let center = index;
-    let right = (index + 1) % total;
+document.getElementById("contactPhone").innerText=
+DB.contact[lang].phone
 
-    images[left].classList.add("side");
-    images[center].classList.add("active");
-    images[right].classList.add("side");
+document.getElementById("contactAddress").innerText=
+DB.contact[lang].address
 
-    images[left].style.display = "block";
-    images[center].style.display = "block";
-    images[right].style.display = "block";
 }
 
-function nextSlide() {
-    const images = document.querySelectorAll("#galleryTrack img");
-    index = (index + 1) % images.length;
-    showImages();
+function renderLocation(){
+
+document.getElementById("locationTitle").innerText=
+DB.locationTitle[lang]
+
 }
 
-function prevSlide() {
-    const images = document.querySelectorAll("#galleryTrack img");
-    index = (index - 1 + images.length) % images.length;
-    showImages();
+function renderMenuTitle(){
+
+document.getElementById("menuTitle").innerText=
+DB.menuTitle[lang]
+
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////
+let index = 0
+
+function showImages(){
+
+const images = document.querySelectorAll("#galleryTrack img")
+const total = images.length
+
+images.forEach(img=>{
+img.classList.remove("active","side")
+img.style.display="none"
+})
+
+let left = (index - 1 + total) % total
+let center = index
+let right = (index + 1) % total
+
+images[left].classList.add("side")
+images[center].classList.add("active")
+images[right].classList.add("side")
+
+images[left].style.display="block"
+images[center].style.display="block"
+images[right].style.display="block"
+
 }
 
-/* ===== Initialization ===== */
-window.onload = function() {
-    renderWebsite();
-};
+function nextSlide(){
+const images=document.querySelectorAll("#galleryTrack img")
+index=(index+1)%images.length
+showImages()
+}
+
+function prevSlide(){
+const images=document.querySelectorAll("#galleryTrack img")
+index=(index-1+images.length)%images.length
+showImages()
+}
+
+window.onload = showImages
+//////////////////////////////////////////////////////////////////////
+
+window.onload=renderWebsite
