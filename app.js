@@ -43,10 +43,10 @@ function renderOrderModule(){
 
     document.getElementById("orderButton").innerText=
         DB.orderModule.orderButton[lang]
-    const orderBtn = document.getElementById("orderButton");
+    // const orderBtn = document.getElementById("orderButton");
 
-    orderBtn.addEventListener("click", () => {
-    window.open("https://www.e-food.gr/", "_blank");
+    // orderBtn.addEventListener("click", () => {
+    // window.open("https://www.e-food.gr/", "_blank");
 });
 
 }
@@ -149,6 +149,7 @@ window.onload=renderWebsite
 
 
 // window.onload=renderWebsite
+
 
 
 
