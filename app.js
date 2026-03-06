@@ -23,7 +23,7 @@ function renderWebsite(){
     renderLocation()
     renderMenuTitle()
     renderFooter()
-})
+
 }
 
 
@@ -44,7 +44,7 @@ function renderOrderModule(){
     document.getElementById("orderButton").innerText=
         DB.orderModule.orderButton[lang]
    
-
+});
 
 }
 
@@ -146,6 +146,7 @@ window.onload=renderWebsite
 
 
 // window.onload=renderWebsite
+
 
 
 
