@@ -23,7 +23,7 @@ function renderWebsite(){
     renderLocation()
     renderMenuTitle()
     renderFooter()
-
+})
 }
 
 
@@ -146,6 +146,7 @@ window.onload=renderWebsite
 
 
 // window.onload=renderWebsite
+
 
 
 
