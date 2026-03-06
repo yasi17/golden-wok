@@ -150,21 +150,21 @@ DB.menuTitle[lang]
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////
-let index=0
+let index = 0
 
 function showImages(){
 
-const images=document.querySelectorAll("#galleryTrack img")
-const total=images.length
+const images = document.querySelectorAll("#galleryTrack img")
+const total = images.length
 
 images.forEach(img=>{
 img.style.display="none"
 img.classList.remove("active")
 })
 
-let left=(index-1+total)%total
-let center=index
-let right=(index+1)%total
+let left = (index - 1 + total) % total
+let center = index
+let right = (index + 1) % total
 
 images[left].style.display="block"
 images[center].style.display="block"
@@ -175,39 +175,18 @@ images[center].classList.add("active")
 }
 
 function nextSlide(){
-
 const images=document.querySelectorAll("#galleryTrack img")
-
 index=(index+1)%images.length
-
 showImages()
-
 }
 
 function prevSlide(){
-
 const images=document.querySelectorAll("#galleryTrack img")
-
 index=(index-1+images.length)%images.length
-
 showImages()
-
 }
 
-function openImage(img){
-
-document.getElementById("lightbox").style.display="flex"
-document.getElementById("lightboxImg").src=img.src
-
-}
-
-function closeImage(){
-
-document.getElementById("lightbox").style.display="none"
-
-}
-
-window.addEventListener("load",showImages)
+window.onload = showImages
 //////////////////////////////////////////////////////////////////////
 
 window.onload=renderWebsite

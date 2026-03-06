@@ -362,41 +362,30 @@ color:#ffd700;
 font-weight:bold;
 }
 /*===============================================================*/
-#gallery{
-margin-top:60px;
-text-align:center;
-}
-
 .gallery{
 display:flex;
 align-items:center;
 justify-content:center;
-gap:15px;
+gap:20px;
 }
 
 .gallery-track{
 display:flex;
-gap:20px;
 align-items:center;
+gap:25px;
 }
 
 .gallery-track img{
-width:170px;
+width:180px;
 border-radius:12px;
 cursor:pointer;
-opacity:0.6;
-transition:all 0.4s;
+transition:0.4s;
 }
-
-/* μεσαία εικόνα */
 
 .gallery-track img.active{
 width:260px;
-opacity:1;
-transform:scale(1.1);
+transform:scale(1.05);
 }
-
-/* arrows */
 
 .arrow{
 font-size:40px;
@@ -404,27 +393,6 @@ background:none;
 border:none;
 color:white;
 cursor:pointer;
-}
-
-/* zoom */
-
-#lightbox{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-justify-content:center;
-align-items:center;
-z-index:999;
-}
-
-#lightbox img{
-max-width:90%;
-max-height:90%;
-border-radius:10px;
 }
 /* ===== 复杂菜品标题（包子）====================================================== */
 
