@@ -46,7 +46,7 @@ function renderOrderModule(){
     const orderBtn = document.getElementById("orderButton");
 
     orderBtn.addEventListener("click", () => {
-    window.open("https://www.e-food.gr/", "_blank");
+    window.open("https://www.e-food.gr/delivery/nea-smurni/golden-wok-8734941", "_blank");
 });
 
 }
@@ -149,6 +149,7 @@ window.onload=renderWebsite
 
 
 // window.onload=renderWebsite
+
 
 
 
