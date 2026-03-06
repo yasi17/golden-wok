@@ -372,17 +372,27 @@ gap:20px;
 .gallery-track{
 display:flex;
 align-items:center;
-gap:25px;
+justify-content:center;
+gap:20px;
+width:700px;
+overflow:hidden;
 }
 
 .gallery-track img{
-width:180px;
+display:none;
 border-radius:12px;
 cursor:pointer;
 transition:0.4s;
 }
 
+.gallery-track img.side{
+display:block;
+width:180px;
+opacity:0.7;
+}
+
 .gallery-track img.active{
+display:block;
 width:260px;
 transform:scale(1.05);
 }

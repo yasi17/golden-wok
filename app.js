@@ -158,19 +158,21 @@ const images = document.querySelectorAll("#galleryTrack img")
 const total = images.length
 
 images.forEach(img=>{
+img.classList.remove("active","side")
 img.style.display="none"
-img.classList.remove("active")
 })
 
 let left = (index - 1 + total) % total
 let center = index
 let right = (index + 1) % total
 
+images[left].classList.add("side")
+images[center].classList.add("active")
+images[right].classList.add("side")
+
 images[left].style.display="block"
 images[center].style.display="block"
 images[right].style.display="block"
-
-images[center].classList.add("active")
 
 }
 
