@@ -1,5 +1,5 @@
 let lang="gr"
-//Όταν πατάς κουμπί γλώσσας: αλλάζει η μεταβλητή ξαναφορτώνει το site.
+
 function setLang(l){
 lang=l
 renderWebsite()
@@ -7,142 +7,151 @@ renderWebsite()
 
 function renderWebsite(){
 
-    //Παίρνει το όνομα του εστιατορίου από το DB.
-    document.getElementById("siteTitle").innerText=
-    DB.restaurant[lang]
+document.getElementById("siteTitle").innerText=
+DB.restaurant[lang]
 
-    document.getElementById("welcome").innerText=
-    DB.welcome[lang]
+document.getElementById("welcome").innerText=
+DB.welcome[lang]
 
-    document.getElementById("slogan").innerText=
-    DB.slogan[lang]
+document.getElementById("slogan").innerText=
+DB.slogan[lang]
 
-    renderOrderModule()
-    renderMenu()
-    renderContact()
-    renderLocation()
-    renderMenuTitle()
-    // renderFooter()
+renderOrderModule()
+renderMenu()
+renderContact()
+renderLocation()
+renderMenuTitle()
+
 
 }
 
 
 function renderOrderModule(){
 
-    document.getElementById("orderTitle").innerText=
-        DB.orderModule.title[lang]
+document.getElementById("orderTitle").innerText=
+DB.orderModule.title[lang]
 
-    document.getElementById("openingText").innerText=
-        DB.opening[lang]
+document.getElementById("openingText").innerText=
+DB.opening[lang]
 
-    document.getElementById("buffetTime").innerText=
-        DB.buffetTime[lang]
+document.getElementById("buffetTime").innerText=
+DB.buffetTime[lang]
 
-    document.getElementById("buffetPrice").innerText=
-        DB.buffetPrice[lang]
+document.getElementById("buffetPrice").innerText=
+DB.buffetPrice[lang]
 
-    document.getElementById("orderButton").innerText=
-        DB.orderModule.orderButton[lang]
+document.getElementById("orderButton").innerText=
+DB.orderModule.orderButton[lang]
+
 }
 
 function renderMenu(){
-    let html=""
 
-    DB.menu.forEach(category=>{
+let html=""
 
-        let catId="cat_"+category.id
+DB.menu.forEach(category=>{
 
-        html+=`
-        <div class="category">
-            <h3 onclick="toggle('${catId}')">
-            ${category.name[lang]} ▼
-            </h3>
+let catId="cat_"+category.id
 
-            <div id="${catId}" style="display:none">
-        `
+html+=`
+<div class="category">
+<h3 onclick="toggle('${catId}')">
+${category.name[lang]} ▼
+</h3>
 
-        category.items.forEach(food=>{
+<div id="${catId}" style="display:none">
+`
 
-            html+=`
-            <div class="food">
-                <span>${food[lang]}</span>
-                <span>€${food.price}</span>
-            </div>
-            `
+category.items?.forEach(food=>{
 
-        })
+/* ===== 普通菜品 ===== */
 
-        html+=`
-            </div>
-        </div>
-        `
+if(!food.type || food.type==="simple"){
 
-    })
-
-    document.getElementById("menuContainer").innerHTML=html
+html+=`
+<div class="food">
+<span>${food[lang]}</span>
+<span>€${food.price}</span>
+</div>
+`
 
 }
 
-//Ανοίγει ή κλείνει μια κατηγορία μενού.
+/* ===== 复杂菜品（专业版） ===== */
+
+if(food.type==="complex"){
+
+html+=`
+<div style="padding:12px 0">
+<strong class="complex-title">
+${food.title[lang]}
+</strong>
+</div>
+`
+
+food.options.forEach(opt=>{
+
+html+=`
+<div class="food">
+<span style="padding-left:20px">
+- ${opt[lang]}
+</span>
+<span>€${opt.price}</span>
+</div>
+`
+
+})
+
+}
+
+})
+
+html+="</div></div>"
+
+})
+
+document.getElementById("menuContainer").innerHTML=html
+
+}
 function toggle(id){
 
-    let el=document.getElementById(id)
+let el=document.getElementById(id)
+if(!el) return
 
-    el.style.display =
-    el.style.display==="none"?"block":"none"
+el.style.display =
+el.style.display==="none"?"block":"none"
 
 }
 
 function renderContact(){
 
-    document.getElementById("contactTitle").innerText=
-        DB.contact[lang].title
+document.getElementById("contactTitle").innerText=
+DB.contact[lang].title
 
-    document.getElementById("contactPhone").innerText=
-        DB.contact[lang].phone
+document.getElementById("contactPhone").innerText=
+DB.contact[lang].phone
 
-    document.getElementById("contactAddress").innerText=
-        DB.contact[lang].address
+document.getElementById("contactAddress").innerText=
+DB.contact[lang].address
 
 }
 
 function renderLocation(){
 
-    document.getElementById("locationTitle").innerText=
-        DB.locationTitle[lang]
+document.getElementById("locationTitle").innerText=
+DB.locationTitle[lang]
 
 }
 
 function renderMenuTitle(){
 
-    document.getElementById("menuTitle").innerText=
-    DB.menuTitle[lang]
+document.getElementById("menuTitle").innerText=
+DB.menuTitle[lang]
 
 }
 
-// function renderFooter(){}
 
 
-//     document.querySelectorAll(".category h3").forEach(h=>{
 
-//     h.addEventListener("click",()=>{
-
-//     let target=h.nextElementSibling
-
-//     if(!target)return
-
-//         target.style.display =
-//         target.style.display==="block"?"none":"block"
-
-// })
-
-// })
 
 window.onload=renderWebsite
-
-
-
-
-
-
-
