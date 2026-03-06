@@ -123,19 +123,20 @@ function renderMenuTitle(){
 function renderFooter(){}
 
 
-    document.querySelectorAll(".category h3").forEach(h=>{
+//     document.querySelectorAll(".category h3").forEach(h=>{
 
-    h.addEventListener("click",()=>{
+//     h.addEventListener("click",()=>{
 
-    let target=h.nextElementSibling
+//     let target=h.nextElementSibling
 
-    if(!target)return
+//     if(!target)return
 
-        target.style.display =
-        target.style.display==="block"?"none":"block"
+//         target.style.display =
+//         target.style.display==="block"?"none":"block"
 
-})
+// })
 
-})
+// })
 
 window.onload=renderWebsite
+
