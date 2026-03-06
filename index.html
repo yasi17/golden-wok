@@ -57,22 +57,33 @@ target="_blank"></a>
 <div id="menuContainer"></div>
 
 </section>
-<section class="gallery">
+<!---///////////////////////////////////////////-->
+<section id="gallery">
 
 <h2>Gallery</h2>
 
-<div class="slider">
+<div class="gallery-container">
 
-<button class="prev" onclick="prevImage()">❮</button>
+<div class="gallery-track" id="galleryTrack">
 
-<img id="galleryImage" src="images/food1.webp">
+<img src="images/food1.webp" onclick="openImage(this.src)">
+<img src="images/food2.webp" onclick="openImage(this.src)">
+<img src="images/food3.webp" onclick="openImage(this.src)">
+<img src="images/food4.webp" onclick="openImage(this.src)">
+<img src="images/food5.webp" onclick="openImage(this.src)">
+<img src="images/food6.webp" onclick="openImage(this.src)">
 
-<button class="next" onclick="nextImage()">❯</button>
+</div>
 
 </div>
 
 </section>
 
+
+<div id="lightbox" onclick="closeImage()">
+<img id="lightboxImg">
+</div>
+<!--////////////////////////////////-->
 <section class="map">
 
 <h2 id="locationTitle"></h2>

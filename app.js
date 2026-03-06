@@ -184,7 +184,21 @@ currentImage=images.length-1
 showImage()
 }
 
+function openImage(src){
 
+let lightbox=document.getElementById("lightbox")
+let img=document.getElementById("lightboxImg")
+
+img.src=src
+lightbox.style.display="flex"
+
+}
+
+function closeImage(){
+
+document.getElementById("lightbox").style.display="none"
+
+}
 
 
 window.onload=renderWebsite
