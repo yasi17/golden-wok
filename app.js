@@ -149,7 +149,40 @@ document.getElementById("menuTitle").innerText=
 DB.menuTitle[lang]
 
 }
+let images=[
+"images/food1.webp",
+"images/food2.webp",
+"images/food3.webp",
+"images/food4.webp"
+]
 
+let currentImage=0
+
+function showImage(){
+document.getElementById("galleryImage").src=images[currentImage]
+}
+
+function nextImage(){
+
+currentImage++
+
+if(currentImage>=images.length){
+currentImage=0
+}
+
+showImage()
+}
+
+function prevImage(){
+
+currentImage--
+
+if(currentImage<0){
+currentImage=images.length-1
+}
+
+showImage()
+}
 
 
 
