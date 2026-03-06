@@ -376,19 +376,27 @@ gap:15px;
 
 .gallery-track{
 display:flex;
-gap:15px;
+gap:20px;
+align-items:center;
 }
 
 .gallery-track img{
-width:220px;
-border-radius:10px;
+width:170px;
+border-radius:12px;
 cursor:pointer;
-transition:transform 0.3s;
+opacity:0.6;
+transition:all 0.4s;
 }
 
-.gallery-track img:hover{
-transform:scale(1.05);
+/* μεσαία εικόνα */
+
+.gallery-track img.active{
+width:260px;
+opacity:1;
+transform:scale(1.1);
 }
+
+/* arrows */
 
 .arrow{
 font-size:40px;
@@ -398,7 +406,7 @@ color:white;
 cursor:pointer;
 }
 
-/* ZOOM */
+/* zoom */
 
 #lightbox{
 display:none;
@@ -410,6 +418,7 @@ height:100%;
 background:rgba(0,0,0,0.9);
 justify-content:center;
 align-items:center;
+z-index:999;
 }
 
 #lightbox img{
