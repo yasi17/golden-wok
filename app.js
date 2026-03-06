@@ -46,9 +46,6 @@ function renderOrderModule(){
 }
 
 function renderMenu(){
-function renderMenu(){
-document.getElementById("menuContainer").innerHTML="TEST MENU"
-}
     let html=""
 
     DB.menu.forEach(category=>{
@@ -142,6 +139,7 @@ function renderMenuTitle(){
 // })
 
 window.onload=renderWebsite
+
 
 
 
