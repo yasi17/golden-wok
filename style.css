@@ -426,6 +426,17 @@ max-width:90%;
 max-height:90%;
 border-radius:10px;
 }
+
+/* Απόσταση πάνω από το Gallery (μετά το μενού) */
+.gallery {
+    padding-top: 80px; 
+    padding-bottom: 80px;
+}
+
+/* Απόσταση πάνω από τον Χάρτη (μετά το gallery) */
+.map {
+    margin-top: 100px;
+}
 /* ===== 复杂菜品标题（包子）====================================================== */
 
 .complex-title{
