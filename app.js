@@ -43,7 +43,6 @@ function renderOrderModule(){
 
     document.getElementById("orderButton").innerText=
         DB.orderModule.orderButton[lang]
-
 }
 
 function renderMenu(){
@@ -139,4 +138,5 @@ function renderFooter(){}
 // })
 
 window.onload=renderWebsite
+
 
