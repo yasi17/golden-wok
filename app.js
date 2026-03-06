@@ -157,20 +157,17 @@ function showImages(){
 const images=document.querySelectorAll("#galleryTrack img")
 const total=images.length
 
-images.forEach(img=>{
+images.forEach((img,i)=>{
+
+let pos=(i-index+total)%total
+
+if(pos<3){
+img.style.display="block"
+}else{
 img.style.display="none"
-img.classList.remove("active")
+}
+
 })
-
-let left=(index-1+total)%total
-let center=index
-let right=(index+1)%total
-
-images[left].style.display="block"
-images[center].style.display="block"
-images[right].style.display="block"
-
-images[center].classList.add("active")
 
 }
 
