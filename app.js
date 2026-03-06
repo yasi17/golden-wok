@@ -22,7 +22,7 @@ function renderWebsite(){
     renderContact()
     renderLocation()
     renderMenuTitle()
-    // renderFooter()
+    renderFooter()
 
 }
 
@@ -43,8 +43,6 @@ function renderOrderModule(){
 
     document.getElementById("orderButton").innerText=
         DB.orderModule.orderButton[lang]
-   
-
 
 }
 
@@ -56,7 +54,7 @@ function renderMenu(){
 
     let catId="cat_"+category.id
 
-    html+=`
+    html+=
         <div class="category">
         <h3 onclick="toggle('${catId}')">
         ${category.name[lang]} ▼
@@ -64,16 +62,16 @@ function renderMenu(){
 
         <div id="${catId}" style="display:none">
 
-    `
+    
 
     category.items.forEach(food=>{
 
-    html+=`
+    html+=
         <div class="food">
         <span>${food[lang]}</span>
         <span>€${food.price}</span>
         </div>
-    `
+    
 
 })
 
@@ -122,41 +120,22 @@ function renderMenuTitle(){
 
 }
 
-// function renderFooter(){}
+function renderFooter(){}
 
 
-//     document.querySelectorAll(".category h3").forEach(h=>{
+    document.querySelectorAll(".category h3").forEach(h=>{
 
-//     h.addEventListener("click",()=>{
+    h.addEventListener("click",()=>{
 
-//     let target=h.nextElementSibling
+    let target=h.nextElementSibling
 
-//     if(!target)return
+    if(!target)return
 
-//         target.style.display =
-//         target.style.display==="block"?"none":"block"
+        target.style.display =
+        target.style.display==="block"?"none":"block"
 
-// })
+})
 
-// })
+})
 
 window.onload=renderWebsite
-
-// })
-
-
-// window.onload=renderWebsite
-
-
-
-
-
-
-
-
-
-
-
-
-
-
