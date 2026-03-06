@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+<meta charset="UTF-8">
+<title>Golden Wok</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+<h2 id="siteTitle"></h2>
+
+<div class="lang">
+<button onclick="setLang('zh')">中文</button>
+<button onclick="setLang('en')">English</button>
+<button onclick="setLang('gr')">Ελληνικά</button>
+</div>
+
+</header>
+
+<section class="hero">
+
+<h2 id="welcome"></h2>
+<p id="slogan"></p>
+
+<section class="card-module">
+
+
+<h2 id="orderTitle"></h2>
+
+<div class="buffet-box">
+
+<p id="openingText"></p>
+
+<p id="buffetTime"></p>
+<p id="buffetPrice"></p>
+
+</div>
+
+<a id="orderButton" class="order-btn" target="_blank"></a>
+
+</section>
+
+</section>
+
+<section class="menu">
+
+<h2 id="menuTitle"></h2>
+
+<div id="menuContainer"></div>
+
+</section>
+
+<section class="map">
+
+<h2 id="locationTitle"></h2>
+
+<iframe
+width="90%"
+height="350"
+loading="lazy"
+src="https://www.google.com/maps?q=Leof.+Andrea+Siggrou+207,+Nea+Smirni+171+21&output=embed">
+</iframe>
+
+</section>
+
+<section class="contact">
+
+<h2 id="contactTitle"></h2>
+<p id="contactPhone"></p>
+<p id="contactAddress"></p>
+
+</section>
+
+<footer>
+
+<div class="footer-brand">Golden Wok</div>
+
+<div class="footer-copy">
+Golden Wok © 2026
+</div>
+
+</footer>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
