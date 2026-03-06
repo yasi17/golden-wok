@@ -4,8 +4,8 @@ const DB = {
 
 restaurant:{
 zh:"金鼎",
-en:"Golden Wok Chinese Restaurant",
-gr:"Golden Wok Κινέζικο Εστιατόριο"
+en:"Golden Wok",
+gr:"Golden Wok "
 },
 
 menuTitle:{
