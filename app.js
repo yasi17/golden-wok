@@ -1,155 +1,129 @@
-let lang="gr"
+let LANG = "zh"
 
-function setLang(l){
-lang=l
+function setLang(lang){
+LANG = lang
 renderWebsite()
 }
 
 function renderWebsite(){
 
-document.getElementById("siteTitle").innerText=
-DB.restaurant[lang]
+document.getElementById("siteTitle").innerText = DB.restaurant[LANG]
+document.getElementById("welcome").innerText = DB.welcome[LANG]
+document.getElementById("slogan").innerText = DB.slogan[LANG]
+document.getElementById("menuTitle").innerText = DB.menuTitle[LANG]
+document.getElementById("openingText").innerText =
+DB.opening[LANG]
 
-document.getElementById("welcome").innerText=
-DB.welcome[lang]
+document.getElementById("buffetTime").innerText =
+DB.buffetTime[LANG]
 
-document.getElementById("slogan").innerText=
-DB.slogan[lang]
+document.getElementById("buffetPrice").innerText =
+DB.buffetPrice[LANG]
 
-renderOrderModule()
+document.getElementById("orderTitle").innerText =
+DB.orderModule.title[LANG]
+
+document.getElementById("orderButton").innerText =
+DB.orderModule.orderButton[LANG]
+document.getElementById("locationTitle").innerText = DB.locationTitle[LANG]
+
+document.getElementById("contactTitle").innerText = DB.contact[LANG].title
+document.getElementById("contactPhone").innerText = DB.contact[LANG].phone
+document.getElementById("contactAddress").innerText = DB.contact[LANG].address
+
+document.getElementById("collapseBtn").innerText =
+DB.collapseAll[LANG]
+
+updateCollapseText()
+
 renderMenu()
-renderContact()
-renderLocation()
-renderMenuTitle()
-
 
 }
-
-
-function renderOrderModule(){
-
-document.getElementById("orderTitle").innerText=
-DB.orderModule.title[lang]
-
-document.getElementById("openingText").innerText=
-DB.opening[lang]
-
-document.getElementById("buffetTime").innerText=
-DB.buffetTime[lang]
-
-document.getElementById("buffetPrice").innerText=
-DB.buffetPrice[lang]
-
-document.getElementById("orderButton").innerText=
-DB.orderModule.orderButton[lang]
-
-}
-
 function renderMenu(){
 
-let html=""
+const container = document.getElementById("menuContainer");
+container.innerHTML="";
 
-DB.menu.forEach(category=>{
+/* 创建三列 */
+const columns = [];
 
-let catId="cat_"+category.id
+for(let i=0;i<3;i++){
+    const col = document.createElement("div");
+    col.className="menu-column";
+    container.appendChild(col);
+    columns.push(col);
+}
+
+/* 菜单轮流分配到列 */
+DB.menu.forEach((cat,index)=>{
+
+const card = document.createElement("div");
+card.className="menu-card";
+
+/* 构建卡片HTML */
+let html = `<h3>${cat.name[LANG]}</h3>`;
+html += `<div class="menu-items">`;
+
+cat.items.forEach(item=>{
+
+if(item.type==="complex"){
+
+html+=`<div class="menu-item complex-title">
+${item.title[LANG]}
+</div>`;
+
+item.options.forEach(op=>{
+html+=`
+<div class="menu-item">
+<span>${op[LANG]}</span>
+<span>€${op.price}</span>
+</div>`;
+});
+
+}else{
 
 html+=`
-<div class="category">
-<h3 onclick="toggle('${catId}')">
-${category.name[lang]} ▼
-</h3>
+<div class="menu-item">
+<span>${item[LANG]}</span>
+<span>€${item.price}</span>
+</div>`;
+}
 
-<div id="${catId}" style="display:none">
-`
+});
 
-category.items?.forEach(food=>{
+html += `</div>`;
+card.innerHTML = html;
 
-/* ===== 普通菜品 ===== */
+/* 点击展开 */
+card.addEventListener("click",()=>{
+card.classList.toggle("open");
+});
 
-if(!food.type || food.type==="simple"){
+/* 轮流放入三列 */
+columns[index % 3].appendChild(card);
 
-html+=`
-<div class="food">
-<span>${food[lang]}</span>
-<span>€${food.price}</span>
-</div>
-`
+});
 
 }
 
-/* ===== 复杂菜品（专业版） ===== */
+function collapseAll(){
 
-if(food.type==="complex"){
-
-html+=`
-<div style="padding:12px 0">
-<strong class="complex-title">
-${food.title[lang]}
-</strong>
-</div>
-`
-
-food.options.forEach(opt=>{
-
-html+=`
-<div class="food">
-<span style="padding-left:20px">
-- ${opt[lang]}
-</span>
-<span>€${opt.price}</span>
-</div>
-`
-
+document.querySelectorAll(".menu-card").forEach(card=>{
+card.classList.remove("open")
 })
 
 }
 
-})
+function updateCollapseText(){
 
-html+="</div></div>"
+const btn = document.getElementById("collapseBtn")
 
-})
-
-document.getElementById("menuContainer").innerHTML=html
-
+if(btn){
+btn.innerText = DB.collapseAll[LANG]
 }
-function toggle(id){
-
-let el=document.getElementById(id)
-if(!el) return
-
-el.style.display =
-el.style.display==="none"?"block":"none"
 
 }
 
-function renderContact(){
-
-document.getElementById("contactTitle").innerText=
-DB.contact[lang].title
-
-document.getElementById("contactPhone").innerText=
-DB.contact[lang].phone
-
-document.getElementById("contactAddress").innerText=
-DB.contact[lang].address
-
-}
-
-function renderLocation(){
-
-document.getElementById("locationTitle").innerText=
-DB.locationTitle[lang]
-
-}
-
-function renderMenuTitle(){
-
-document.getElementById("menuTitle").innerText=
-DB.menuTitle[lang]
-
-}
-/////////////////////////////////////////////////////////////////////////////////////////////////
 let index=0
 
 function showImages(){
@@ -208,6 +182,7 @@ document.getElementById("lightbox").style.display="none"
 }
 
 window.addEventListener("load",showImages)
-//////////////////////////////////////////////////////////////////////
 
-window.onload=renderWebsite
+window.onload = ()=>{
+renderWebsite()
+}

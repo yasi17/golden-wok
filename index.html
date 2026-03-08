@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <title>Golden Wok</title>
 <link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -48,16 +49,20 @@ target="_blank"></a>
 
 </section>
 
-
-
 <section class="menu">
 
 <h2 id="menuTitle"></h2>
 
-<div id="menuContainer"></div>
+<button onclick="collapseAll()" 
+id="collapseBtn"
+class="collapse-btn">
+</button>
+
+<div id="menuContainer" class="menu-grid"></div>
+
 
 </section>
-<!---///////////////////////////////////////////-->
+
 <section id="gallery">
 
 <h1>Gallery</h1>
@@ -104,7 +109,7 @@ target="_blank"></a>
 <div id="lightbox" onclick="closeImage()">
 <img id="lightboxImg">
 </div>
-<!--////////////////////////////////-->
+
 <section class="map">
 
 <h2 id="locationTitle"></h2>
