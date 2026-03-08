@@ -1,3 +1,4 @@
+
 body{
 margin:0;
 font-family:Arial;
@@ -381,7 +382,7 @@ align-items:center;
 }
 
 .gallery-track img{
-width:170px;
+width:300px;
 border-radius:12px;
 cursor:pointer;
 opacity:0.6;
@@ -391,7 +392,7 @@ transition:all 0.4s;
 /* μεσαία εικόνα */
 
 .gallery-track img.active{
-width:260px;
+width:300px;
 opacity:1;
 transform:scale(1.1);
 }
